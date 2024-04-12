@@ -1,0 +1,14 @@
+<nav class="shadow-lg border-gray-200 dark:bg-gray-900">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <%= image_tag "logo.png", class: "w-20" %>
+    <div class="flex items-center md:order-2 space-x-3 rtl:space-x-reverse">
+      <% if user_signed_in? %>
+        <%= link_to "Profile", edit_user_path(current_user), class: "button-info" %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-dark" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "button-dark" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
